@@ -12,6 +12,21 @@ puts `cat /github/workflow/event.json`
 
 EVENT_JSON = '/github/workflow/event.json'
 
+VIVO_BASE_URL = ENV['INPUT_BASE_URL']
+if VIVO_BASE_URL.blank?
+  puts "INPUT_BASE_URL is blank"
+  exit 1
+end
+ACCESS_KEY = ENV['INPUT_ACCESS_KEY']
+if ACCESS_KEY.blank?
+  puts "INPUT_ACCESS_KEY is blank"
+  exit 1
+end
+ACCESS_SECRET = ENV['INPUT_ACCESS_SECRET']
+if ACCESS_SECRET.blank?
+  puts "INPUT_ACCESS_SECRET is blank"
+  exit 1
+end
 
 def parse_event_json
   return @event_json if defined? @event_json
