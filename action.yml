@@ -5,21 +5,16 @@ branding:
   icon: 'cloud'
   color: 'blue'
 inputs:
-  args:
-    description: 'COSCMD args, detail: https://cloud.tencent.com/document/product/436/10976'
-    required: false
-  secret_id:
-    description: 'Tencent cloud SecretId, from: https://console.cloud.tencent.com/cam/capi'
-    required: false
-  secret_key:
-    description: 'Tencent cloud SecretKey, from: https://console.cloud.tencent.com/cam/capi'
-    required: false
-  bucket:
-    description: 'COS bucket name'
-    required: false
-  region:
-    description: 'COS bucket region, detail: https://cloud.tencent.com/document/product/436/6224'
-    required: false
+  base_url:
+    description: 'vivo 接口具体查看文档 https://dev.vivo.com.cn/documentCenter/doc/327'
+    default: 'https://developer-api.vivo.com.cn/router/rest'
+    required: true
+  access_key:
+    description: 'access_key'
+    required: true
+  access_secret:
+    description: 'access_secret'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
