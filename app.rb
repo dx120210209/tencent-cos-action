@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'openssl'
 require 'httparty'
 require 'json'
-require 'time'
+require 'active_support/all'
 
 puts '666'
 puts ENV.to_hash
@@ -12,17 +14,17 @@ puts `cat /github/workflow/event.json`
 
 EVENT_JSON = '/github/workflow/event.json'
 VIVO_BASE_URL = ENV['INPUT_BASE_URL']
-if VIVO_BASE_URL.nil?
+if VIVO_BASE_URL.blank?
   puts "INPUT_BASE_URL is blank"
   exit 1
 end
 ACCESS_KEY = ENV['INPUT_ACCESS_KEY']
-if ACCESS_KEY.nil?
+if ACCESS_KEY.blank?
   puts "INPUT_ACCESS_KEY is blank"
   exit 1
 end
 ACCESS_SECRET = ENV['INPUT_ACCESS_SECRET']
-if ACCESS_SECRET.nil?
+if ACCESS_SECRET.blank?
   puts "INPUT_ACCESS_SECRET is blank"
   exit 1
 end
@@ -44,7 +46,7 @@ end
 def online_time
   return @online_time if defined? @online_time
 
-  @online_time = commit_message.match(/\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})/)[1]
+  @online_time = commit_message.match(/\s*(\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2})/)&.[](1)
 end
 
 def parse_config_gradle
@@ -69,3 +71,4 @@ puts "Commit Message: #{commit_message}"
 puts "VersionCode: #{version_code}"
 puts "VersionName: #{version_name}"
 puts "Online Time: #{online_time}"
+
