@@ -2,6 +2,9 @@
 
 set -e
 
+pwd
+ls -lah
+
 if [ -z "$INPUT_ARGS" ]; then
   echo '::error::Required Args parameter'
   exit 1
