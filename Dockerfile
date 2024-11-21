@@ -1,4 +1,4 @@
-FROM ruby:3.3.5-alpine
+FROM ruby:3.3.5
 WORKDIR /app
 COPY app.rb app.rb
 RUN gem install httparty
