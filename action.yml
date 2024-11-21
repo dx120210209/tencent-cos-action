@@ -1,6 +1,6 @@
-name: 'Tencent COS Action'
-description: 'GitHub Action for Tencent COS Command (coscmd)'
-author: 'zkqiang <zkqiang@126.com>'
+name: 'VIVO 应用商店上传 app Action'
+description: 'VIVO 应用商店上传 app Action'
+author: 'weihongbin1 <1602586227@qq.com>'
 branding:
   icon: 'cloud'
   color: 'blue'
