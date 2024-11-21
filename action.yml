@@ -7,19 +7,19 @@ branding:
 inputs:
   args:
     description: 'COSCMD args, detail: https://cloud.tencent.com/document/product/436/10976'
-    required: true
+    required: false
   secret_id:
     description: 'Tencent cloud SecretId, from: https://console.cloud.tencent.com/cam/capi'
-    required: true
+    required: false
   secret_key:
     description: 'Tencent cloud SecretKey, from: https://console.cloud.tencent.com/cam/capi'
-    required: true
+    required: false
   bucket:
     description: 'COS bucket name'
-    required: true
+    required: false
   region:
     description: 'COS bucket region, detail: https://cloud.tencent.com/document/product/436/6224'
-    required: true
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
