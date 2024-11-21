@@ -5,5 +5,5 @@ require 'time'
 
 puts '666'
 puts ENV.to_hash
-`pwd`
-`ls -lah`
+puts `pwd`
+puts `ls -lah`
