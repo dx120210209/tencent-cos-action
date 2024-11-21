@@ -3,4 +3,4 @@ WORKDIR /app
 COPY app.rb app.rb
 RUN gem install httparty
 
-CMD ["ruby", "app.rb"]
+CMD ["ruby", "/app/app.rb"]
