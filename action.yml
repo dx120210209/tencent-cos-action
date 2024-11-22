@@ -15,6 +15,9 @@ inputs:
   access_secret:
     description: 'access_secret'
     required: true
+  apk_file_path:
+    description: 'apk 文件路径'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
