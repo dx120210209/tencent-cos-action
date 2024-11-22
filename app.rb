@@ -12,23 +12,33 @@ puts `ls -lah`
 puts `cat /github/workflow/event.json`
 
 
-EVENT_JSON = '/github/workflow/event.json'
+EVENT_JSON = ENV['GITHUB_EVENT_PATH']
+if EVENT_JSON.blank?
+  puts 'GITHUB_EVENT_PATH is blank'
+  exit 1
+end
 VIVO_BASE_URL = ENV['INPUT_BASE_URL']
 if VIVO_BASE_URL.blank?
-  puts "INPUT_BASE_URL is blank"
+  puts 'INPUT_BASE_URL is blank'
   exit 1
 end
 ACCESS_KEY = ENV['INPUT_ACCESS_KEY']
 if ACCESS_KEY.blank?
-  puts "INPUT_ACCESS_KEY is blank"
+  puts 'INPUT_ACCESS_KEY is blank'
   exit 1
 end
 ACCESS_SECRET = ENV['INPUT_ACCESS_SECRET']
 if ACCESS_SECRET.blank?
-  puts "INPUT_ACCESS_SECRET is blank"
+  puts 'INPUT_ACCESS_SECRET is blank'
   exit 1
 end
-puts "VIVO_BASE_URL: #{VIVO_BASE_URL} ACCESS_KEY: #{ACCESS_KEY} ACCESS_SECRET: #{ACCESS_SECRET}"
+# INPUT_APK_FILE_PATH
+APK_FILE_PATH = ENV['INPUT_APK_FILE_PATH']
+if APK_FILE_PATH.blank?
+  puts 'INPUT_APK_FILE_PATH is blank'
+  exit 1
+end
+puts "VIVO_BASE_URL: #{VIVO_BASE_URL} ACCESS_KEY: #{ACCESS_KEY} ACCESS_SECRET: #{ACCESS_SECRET} APK_FILE_PATH: #{APK_FILE_PATH}"
 def parse_event_json
   return @parse_event_json if defined? @parse_event_json
 
@@ -71,4 +81,5 @@ puts "Commit Message: #{commit_message}"
 puts "VersionCode: #{version_code}"
 puts "VersionName: #{version_name}"
 puts "Online Time: #{online_time}"
+
 
